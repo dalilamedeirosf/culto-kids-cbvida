@@ -33,3 +33,4 @@ dist-ssr
 .data
 .env
 .vercel
+.netlify

@@ -5,9 +5,9 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Na Vercel (variável VERCEL definida no build) gera a saída no formato da Vercel.
+// Gera a saída no formato da hospedagem detectada no build (Vercel ou Netlify).
 // Em qualquer outro lugar mantém o padrão (Cloudflare Workers).
-const vercel = process.env.VERCEL
+const hosting = process.env.VERCEL
   ? {
       preset: "vercel",
       output: {
@@ -16,7 +16,16 @@ const vercel = process.env.VERCEL
         publicDir: ".vercel/output/static",
       },
     }
-  : undefined;
+  : process.env.NETLIFY
+    ? {
+        preset: "netlify",
+        output: {
+          dir: ".netlify/functions-internal",
+          serverDir: ".netlify/functions-internal/server",
+          publicDir: "dist",
+        },
+      }
+    : undefined;
 
 export default defineConfig({
   tanstackStart: {
@@ -24,5 +33,5 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  ...(vercel ? { nitro: vercel } : {}),
+  ...(hosting ? { nitro: hosting } : {}),
 });
