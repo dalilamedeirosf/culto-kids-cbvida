@@ -5,7 +5,8 @@ import type { Product, Settings } from "./types";
 export const DEFAULT_SETTINGS: Settings = {
   campaignName: "Culto Kids",
   institutionName: "CBVIDA RIO",
-  campaignDeadline: "2026-12-15T23:59:59-03:00",
+  campaignDeadline: "2026-10-15T23:59:59-03:00",
+  eventDate: "2026-10-17",
   campaignActive: true,
   pixKey: "+5521986422434",
   pixRecipient: "",

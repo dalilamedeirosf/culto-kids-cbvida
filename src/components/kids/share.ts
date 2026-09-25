@@ -2,6 +2,7 @@ export function campaignShareText(opts: {
   institution: string;
   children: number;
   deadline: string;
+  eventDate: string;
   url: string;
 }) {
   return [
@@ -11,7 +12,7 @@ export function campaignShareText(opts: {
     "",
     "Você pode escolher um item para doar ou contribuir pelo PIX.",
     "",
-    `As doações serão recebidas até ${opts.deadline}.`,
+    `As doações serão recebidas até ${opts.deadline}, e o culto será no ${opts.eventDate}.`,
     "",
     "Confira nossa lista aqui:",
     opts.url,

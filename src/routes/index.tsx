@@ -18,6 +18,7 @@ import {
   cotas,
   formatBRL,
   formatDateBR,
+  formatEventDate,
   groupByCategory,
   mostNeeded,
 } from "@/lib/campaign/types";
@@ -116,6 +117,9 @@ function Hero({ data, deadline, open }: { data: PublicCampaign; deadline: string
         <h1 className="mt-4 font-kid-display text-6xl font-extrabold uppercase leading-[0.9] drop-shadow-[0_4px_0_var(--kid-blue-deep)] sm:text-8xl">
           {s.campaignName} <span className="inline-block kid-float">🎉</span>
         </h1>
+        <p className="mt-4 inline-flex items-center gap-2 rounded-full bg-kid-red px-5 py-2 text-base font-extrabold uppercase tracking-wide shadow-lg">
+          🎈 Culto dia {formatEventDate(s.eventDate)}
+        </p>
         <p className="mx-auto mt-4 max-w-xl font-kid-display text-2xl font-bold leading-tight text-kid-yellow sm:text-3xl">
           Vamos juntos preparar um dia inesquecível para nossas crianças!
         </p>
@@ -465,6 +469,7 @@ function ShareBlock({ data, deadline }: { data: PublicCampaign; deadline: string
     institution: data.settings.institutionName,
     children: data.settings.childrenGoal,
     deadline,
+    eventDate: formatEventDate(data.settings.eventDate),
     url,
   });
   return (
@@ -496,7 +501,10 @@ function Footer({ data, deadline }: { data: PublicCampaign; deadline: string }) 
       <p className="mt-1 text-lg font-bold text-kid-yellow">O lugar do seu recomeço. ❤️</p>
       <p className="mx-auto mt-4 max-w-md text-lg">“Obrigado por semear na próxima geração.”</p>
       <ul className="mx-auto mt-6 grid max-w-2xl gap-2 text-sm font-semibold sm:grid-cols-3">
-        <li className="rounded-2xl bg-white/10 px-4 py-3">📅 Doações até {deadline}</li>
+        <li className="rounded-2xl bg-white/10 px-4 py-3">
+          📅 Doações até {deadline} · 🎈 Culto dia{" "}
+          {formatDateBR(`${data.settings.eventDate}T12:00:00-03:00`)}
+        </li>
         <li className="rounded-2xl bg-white/10 px-4 py-3">
           🎁 Produtos deverão ser entregues presencialmente na igreja.
         </li>

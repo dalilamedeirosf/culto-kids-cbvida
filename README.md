@@ -31,7 +31,7 @@ Página pública: **`/`** · Painel administrativo: **`/admin`**
 2. No projeto, abra **SQL Editor → New query**, cole todo o conteúdo de
    `supabase/migrations/20260925120000_culto_kids.sql` e clique em **Run**.
    Isso cria as tabelas, as funções de reserva, a lista de itens, a data final
-   (15/12/2026 às 23:59, horário de Brasília) e a chave PIX `+5521986422434`.
+   (15/10/2026 às 23:59, horário de Brasília), a data do culto (17/10/2026) e a chave PIX `+5521986422434`.
    Pode rodar de novo sem duplicar nada.
 3. Em **Project Settings → API**, copie:
    - **Project URL** → vai em `SUPABASE_URL`

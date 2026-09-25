@@ -41,6 +41,7 @@ export const getPublicCampaign = createServerFn({ method: "GET" }).handler(async
       campaignName: settings.campaignName,
       institutionName: settings.institutionName,
       campaignDeadline: settings.campaignDeadline,
+      eventDate: settings.eventDate,
       campaignActive: settings.campaignActive,
       pixKey: settings.pixKey,
       pixRecipient: settings.pixRecipient,

@@ -32,6 +32,7 @@ export type Settings = {
   campaignName: string;
   institutionName: string;
   campaignDeadline: string; // ISO
+  eventDate: string; // AAAA-MM-DD, dia do culto
   campaignActive: boolean;
   pixKey: string;
   pixRecipient: string;
@@ -243,6 +244,15 @@ export function formatDateBR(
   return new Intl.DateTimeFormat("pt-BR", { timeZone: "America/Sao_Paulo", ...opts }).format(
     new Date(iso),
   );
+}
+
+/** "sábado, 17/10" a partir de "2026-10-17". */
+export function formatEventDate(date: string) {
+  return formatDateBR(`${date}T12:00:00-03:00`, {
+    weekday: "long",
+    day: "2-digit",
+    month: "2-digit",
+  });
 }
 
 export function formatDateTimeBR(iso: string) {

@@ -14,6 +14,7 @@ import {
   formatAmount,
   formatBRL,
   formatDateBR,
+  formatEventDate,
   formatPhone,
   isValidPhone,
   type MutationErrorCode,
@@ -378,6 +379,7 @@ function Success({
     institution: campaign.settings.institutionName,
     children: campaign.settings.childrenGoal,
     deadline,
+    eventDate: formatEventDate(campaign.settings.eventDate),
     url: shareUrl,
   });
 

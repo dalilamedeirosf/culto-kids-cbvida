@@ -15,7 +15,8 @@ create table if not exists public.settings (
   id                 integer primary key default 1 check (id = 1),
   campaign_name      text        not null default 'Culto Kids',
   institution_name   text        not null default 'CBVIDA RIO',
-  campaign_deadline  timestamptz not null default '2026-12-15 23:59:59-03',
+  campaign_deadline  timestamptz not null default '2026-10-15 23:59:59-03',
+  event_date         date        not null default '2026-10-17',
   campaign_active    boolean     not null default true,
   pix_key            text        not null default '+5521986422434',
   pix_recipient      text        not null default '',
@@ -29,6 +30,9 @@ create table if not exists public.settings (
 );
 
 insert into public.settings (id) values (1) on conflict (id) do nothing;
+
+-- para bancos criados por uma versão anterior deste arquivo
+alter table public.settings add column if not exists event_date date not null default '2026-10-17';
 
 -- ---------------------------------------------------------------------
 -- PRODUCTS

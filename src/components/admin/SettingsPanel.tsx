@@ -132,6 +132,14 @@ export function SettingsPanel({ data, onChanged }: { data: AdminData; onChanged:
               className={cn(inputCls, deadlinePassed && "border-kid-red")}
             />
           </Field>
+          <Field label="Data do culto">
+            <input
+              type="date"
+              value={s.eventDate}
+              onChange={(e) => set("eventDate", e.target.value)}
+              className={inputCls}
+            />
+          </Field>
           <Field label="Meta de crianças">
             <input
               value={String(s.childrenGoal)}

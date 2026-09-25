@@ -126,6 +126,7 @@ export const updateSettings = createServerFn({ method: "POST" })
         campaignName: z.string().trim().min(1).max(120),
         institutionName: z.string().trim().min(1).max(120),
         campaignDeadline: z.string().datetime({ offset: true }),
+        eventDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
         campaignActive: z.boolean(),
         pixKey: z.string().trim().max(120),
         pixRecipient: z.string().trim().max(120),
