@@ -19,6 +19,7 @@ import {
   formatBRL,
   formatDateBR,
   formatEventDate,
+  formatWeekdayDate,
   groupByCategory,
   mostNeeded,
 } from "@/lib/campaign/types";
@@ -75,7 +76,7 @@ function CultoKidsPage() {
     [open],
   );
 
-  const deadline = formatDateBR(data.settings.campaignDeadline);
+  const deadline = formatWeekdayDate(data.settings.campaignDeadline);
 
   return (
     <div className="kids min-h-screen overflow-x-hidden">

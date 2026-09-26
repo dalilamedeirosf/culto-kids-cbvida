@@ -15,6 +15,7 @@ import {
   formatBRL,
   formatDateBR,
   formatEventDate,
+  formatWeekdayDate,
   formatPhone,
   isValidPhone,
   type MutationErrorCode,
@@ -78,7 +79,7 @@ function Flow({
   onChanged: () => void;
 }) {
   const { settings } = campaign;
-  const deadline = formatDateBR(settings.campaignDeadline);
+  const deadline = formatWeekdayDate(settings.campaignDeadline);
   const [step, setStep] = useState<Step>("choose");
   const [quantity, setQuantity] = useState(1);
   const [name, setName] = useState("");

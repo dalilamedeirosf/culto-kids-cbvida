@@ -246,6 +246,14 @@ export function formatDateBR(
   );
 }
 
+/** "quinta, 15/10" — data com o dia da semana, sem o "-feira". */
+export function formatWeekdayDate(iso: string) {
+  return formatDateBR(iso, { weekday: "long", day: "2-digit", month: "2-digit" }).replace(
+    "-feira",
+    "",
+  );
+}
+
 /** "sábado, 17/10" a partir de "2026-10-17". */
 export function formatEventDate(date: string) {
   return formatDateBR(`${date}T12:00:00-03:00`, {
